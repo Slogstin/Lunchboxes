@@ -1,0 +1,31 @@
+//==================================================
+// Item Storage Definitions
+// Expand this later with UASINFO?
+//==================================================
+class LCHBX_ItemStorage : ItemStorage {
+	override int CheckConditions(Inventory item, class<Inventory> cls) {
+		bool valid = (
+			(item && (item is 'UaS_Consumable')) ||
+			(cls  && (cls  is 'UaS_Consumable'))
+		);
+
+		if (!valid) { return IType_Invalid; }
+		return super.CheckConditions(item,cls);
+	}
+	
+	override string GetFailMessage() {
+		if (MaxBulk < 200) {
+			return Stringtable.Localize("That item is too large!");
+		}
+		return Stringtable.Localize("Your Lunchbox is full.");
+	}
+
+	override int GetOperationSpeed(class<Inventory> item, int operation) {
+		switch (clamp(operation, 0, 2)) {
+			case 0: return 0; break;	//extract
+			case 1: return 0; break;	//pocket
+			case 2: return 0; break;	//insert
+		}
+		return 10;
+	}
+}

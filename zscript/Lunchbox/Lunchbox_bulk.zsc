@@ -1,0 +1,56 @@
+//Again, commented out everything you don't need when you can only carry one box anyway.
+//Line 47 was the problem. VM abort happened when you have 2 or more boxes with stuff in them
+//and dropped one. Something about splitting the items on drop causes the issue i guess.		-Slogstin
+
+//==================================================
+// Bulk and Multiple Pouches
+//==================================================
+extend class VIRLunchbox {
+	override double WeaponBulk() {
+		double reductionfactor = 0.40;
+		double basebulk = 20;
+		return max((Storage ? Storage.TotalBulk * reductionfactor : 0), basebulk);
+	}
+
+	override void UpdateCapacity() {
+		MaxCapacity = default.MaxCapacity / max(hd_encumbrance, 0.01);
+		Storage.MaxBulk = MaxCapacity;
+	}
+
+	override void actualpickup(actor other,bool silent) {
+		VIRLunchbox HeldLCHBX=VIRLunchbox(other.findinventory("VIRLunchbox"));
+		if (HeldLCHBX) {
+/*			HeldLCHBX.weaponstatus[LCHBX_AMOUNT]++;
+			HeldLCHBX.UpdateCapacity();
+			for (int i = 0; i < Storage.Items.Size(); i++) {
+				StorageItem MoveItem = Storage.Items[i];
+				int AmountToMove = MoveItem.Amounts.Size() > 0 ? MoveItem.Amounts[0] : 0;
+				HeldLCHBX.Storage.AddAmount(MoveItem.ItemClass, AmountToMove);
+			}
+			self.destroy();*/
+			return;
+		}
+		super.actualpickup(other, silent);
+	}
+
+	override inventory CreateTossable(int amt) {
+//		bool DoSplit = (weaponstatus[LCHBX_AMOUNT] > 1);
+//		amount = weaponstatus[LCHBX_AMOUNT]; // Hack to satisfy CreateTossable expectations
+		VIRLunchbox DroppedLCHBX = VIRLunchbox(super.CreateTossable(amt));
+//		DroppedLCHBX.weaponstatus[LCHBX_AMOUNT] = 1;
+		DroppedLCHBX.UpdateCapacity();
+/*		if (DoSplit) {
+			weaponstatus[LCHBX_AMOUNT]--;
+			StorageItem SelItem = Storage.GetSelectedItem();
+			if (!SelItem || Storage.Items.Size() <= 0) { return DroppedLCHBX;}
+			int AmountInPouch = SelItem.Amounts.Size() > 0 ? SelItem.Amounts[0] : 0;
+			double UnitBulk = HDPickup(getdefaultbytype(SelItem.ItemClass)).bulk * hdmath.getencumbrancemult();
+			UnitBulk = max(UnitBulk, 0.01);
+			int AmountToMove = int((DroppedLCHBX.Storage.MaxBulk - DroppedLCHBX.Storage.TotalBulk) / UnitBulk);
+			AmountToMove = min(AmountToMove, AmountInPouch);
+			DroppedLCHBX.Storage.AddAmount(SelItem.ItemClass, AmountToMove);
+			Storage.RemoveItem(SelItem, null, null, AmountToMove);
+		}*/
+		return DroppedLCHBX;
+	}
+}

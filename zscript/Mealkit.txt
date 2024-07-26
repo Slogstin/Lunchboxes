@@ -1,0 +1,39 @@
+//Literally just a stripped down Medikit.	-Slogstin
+
+class VIRMealkit:HDPickup{
+
+Default
+	{
+		-hdpickup.droptranslation
+		inventory.pickupmessage "Picked up a Mealkit!";
+		inventory.icon "MREPA0";
+		+ROLLSPRITE
+		+ROLLCENTER
+		Scale 0.450;
+		hdpickup.bulk 30;
+		hdpickup.refid "MKT";
+		Tag "Mealkit";
+	}
+
+	States
+	{
+		Spawn:
+			MREP A -1;
+			Stop;
+		use:
+			TNT1 A 0
+				{
+					A_StartSound("bandage/rip",CHAN_WEAPON,CHANF_OVERLAP,0.4);
+					
+					let mdk = UaS_RandomConsumable(spawn("UaS_RandomFood", pos));
+					mdk.actualpickup(self, true);
+
+					mdk = UaS_RandomConsumable(spawn("UaS_RandomFood", pos));
+					mdk.actualpickup(self, true);
+
+					mdk = UaS_RandomConsumable(spawn("UaS_RandomDrink", pos));
+					mdk.actualpickup(self, true);
+				}
+				Stop;
+	}
+}

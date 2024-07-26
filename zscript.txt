@@ -1,0 +1,9 @@
+version "4.10"
+
+#include "zscript/Lunchbox/Lunchbox.zsc"
+#include "zscript/Lunchbox/Lunchbox_bulk.zsc"
+#include "zscript/Lunchbox/Lunchbox_hud.zsc"
+#include "zscript/Lunchbox/Lunchbox_itemstorage.zsc"
+#include "zscript/Lunchbox/Lunchbox_spawning.zsc"
+
+#include "zscript/Mealkit.txt"

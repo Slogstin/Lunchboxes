@@ -1,0 +1,3 @@
+[enu default]
+TAG_LUNCHBOX = "Lunchbox";
+PICKUP_LUNCHBOX = "Picked up a Lunchbox.";
