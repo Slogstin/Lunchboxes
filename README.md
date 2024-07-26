@@ -3,6 +3,8 @@ This Addon adds Lunchboxes and Mealkits to [Hideous Destructor](https://codeberg
 
 REQUIRES [UGLY AS SIN](https://github.com/caligari87/Ugly-as-Sin)!
 
+![lucnh](https://github.com/user-attachments/assets/08703b34-9b22-4e0e-8799-baa3b5b7aa41)
+
 
 # Credits
 Matt for [Hideous Destructor](https://codeberg.org/mc776/HideousDestructor) and the Medikit code that i borrowed for Mealkits.
