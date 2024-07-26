@@ -28,12 +28,12 @@ Caligari87 and everyone else who contributed to [Ugly as Sin](https://github.com
     
 
 ## Mealkits:
-    -Can be picked up and opened like Medikits
-    -One Mealkit contains 2 meals and 1 drink
-    -Contents might be spoiled or open
-    -weighs 30 blocks
-    -Loadout code: MKT
-    -Class:  VirMealkit
+    * Can be picked up and opened like Medikits
+    * One Mealkit contains 2 meals and 1 drink
+    * Contents might be spoiled or open
+    * weighs 30 blocks
+    * Loadout code: MKT
+    * Class:  VirMealkit
 
     "If you don't like carrying rations everywhere you go and end up starving because of it, we got you covered!
     Mealkits are disposable lunchboxes that always contain 2 meals and a drink. Just pick them up and open them when the hunger strikes!
