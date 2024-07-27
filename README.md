@@ -3,9 +3,6 @@ This Addon adds Lunchboxes and Mealkits to [Hideous Destructor](https://codeberg
 
 REQUIRES [UGLY AS SIN](https://github.com/caligari87/Ugly-as-Sin)!
 
-If you use Action Bubbles, [Here](https://github.com/Slogstin/HD_Lunchboxes_Bubbles_Patch) is a patch to be used with this addon.
-This will fix the Lunchbox Bubble not changing to your player colour, when opening it.
-
 ![lucnh](https://github.com/user-attachments/assets/08703b34-9b22-4e0e-8799-baa3b5b7aa41)
 
 
