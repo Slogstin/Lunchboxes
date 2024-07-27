@@ -31,6 +31,7 @@ Caligari87 and everyone else who contributed to [Ugly as Sin](https://github.com
 
 ## Mealkits:
     * Can be picked up and opened like Medikits
+    * Rarely spawns near Medikits
     * One Mealkit contains 2 meals and 1 drink
     * Contents might be spoiled or open
     * weighs 30 blocks
